@@ -14,7 +14,7 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   bool showPassword = true;
-  GlobalKey<FormState> key = GlobalKey<FormState>();
+  GlobalKey<FormState> key = GlobalKey<FormState>(); //imp pattern
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -24,6 +24,7 @@ class _LoginViewState extends State<LoginView> {
             child: Padding(
               padding: const EdgeInsets.only(left: 20.0, right: 20.0),
               child: Form(
+                //important pattern
                 key: key,
                 child: Column(
                   children: [
@@ -94,7 +95,7 @@ class _LoginViewState extends State<LoginView> {
                             textColor: Colors.white,
                             onPressed: () {
                               if (key.currentState!.validate()) {
-                                Get.off(() => const MyHomeView());
+                                Get.offAll(() => const MyHomeView());
                               }
                             },
                             child: const Text(
