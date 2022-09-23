@@ -1,3 +1,4 @@
+import 'package:ecommerce/widget/buttons.dart';
 import 'package:flutter/material.dart';
 
 class RegisterView extends StatefulWidget {
@@ -24,6 +25,16 @@ class _RegisterViewState extends State<RegisterView> {
             padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
             child: Column(
               children: [
+                //page title
+                const Text(
+                  "SIGN UP",
+                  style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
+                ),
+
+                const SizedBox(
+                  height: 10.0,
+                ),
+
                 //user full name
                 TextFormField(
                   decoration: const InputDecoration(
@@ -155,23 +166,7 @@ class _RegisterViewState extends State<RegisterView> {
                   height: 10.0,
                 ),
 
-                Row(
-                  children: [
-                    Expanded(
-                      child: MaterialButton(
-                        color: Colors.blueAccent,
-                        onPressed: () {},
-                        child: const Text(
-                          'Register ',
-                          style: TextStyle(
-                            fontSize: 17.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                )
+                const MyButton(text: "Register"),
               ],
             ),
           ),

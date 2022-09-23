@@ -1,3 +1,4 @@
+import 'package:ecommerce/widget/buttons.dart';
 import 'package:flutter/material.dart';
 
 class ForgetPasswordView extends StatelessWidget {
@@ -21,6 +22,11 @@ class ForgetPasswordView extends StatelessWidget {
               ),
               child: Column(
                 children: [
+                  //notice
+                  const ListTile(
+                    subtitle:
+                        Text("Enter the email address linked to this account"),
+                  ),
                   TextFormField(
                     decoration: const InputDecoration(
                       labelText: 'Email Id',
@@ -37,24 +43,9 @@ class ForgetPasswordView extends StatelessWidget {
                   const SizedBox(
                     height: 10.0,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: MaterialButton(
-                          color: Colors.blueAccent,
-                          onPressed: () {},
-                          child: const Text(
-                            'Send',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 17.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
+                  const MyButton(
+                    text: "Reset Password",
+                  ),
                 ],
               ),
             ),
