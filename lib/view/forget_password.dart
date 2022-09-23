@@ -12,8 +12,8 @@ class ForgetPasswordView extends StatelessWidget {
             child: Text('Recover password'),
           ),
         ),
-        body: SingleChildScrollView(
-          child: Center(
+        body: Center(
+          child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.only(
                 left: 20.0,
@@ -46,6 +46,7 @@ class ForgetPasswordView extends StatelessWidget {
                           child: const Text(
                             'Send',
                             style: TextStyle(
+                              color: Colors.white,
                               fontSize: 17.0,
                               fontWeight: FontWeight.bold,
                             ),

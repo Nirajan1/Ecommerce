@@ -1,6 +1,8 @@
+import 'package:ecommerce/view/forget_password.dart';
 import 'package:ecommerce/view/registration.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
+import 'package:flutter/material.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -21,6 +23,13 @@ class _LoginViewState extends State<LoginView> {
               padding: const EdgeInsets.only(left: 20.0, right: 20.0),
               child: Column(
                 children: [
+                  //Image lottie animation
+                  Lottie.asset(
+                    'images/password.json',
+                    width: Get.size.width * 0.50,
+                    height: Get.size.height * 0.3,
+                    frameRate: FrameRate(30.0),
+                  ),
                   //user id
                   TextFormField(
                     decoration: const InputDecoration(
@@ -88,6 +97,16 @@ class _LoginViewState extends State<LoginView> {
                       Get.to(() => const RegisterView());
                     },
                     child: const Text('Are you new? Register here'),
+                  ),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => const ForgetPasswordView());
+                    },
+                    child: const Text('Forget Password?'),
                   ),
                 ],
               ),

@@ -74,6 +74,21 @@ class _RegisterViewState extends State<RegisterView> {
                 ),
 
                 TextFormField(
+                  decoration: const InputDecoration(
+                    hintText: 'Phone Number',
+                    prefixIcon: Icon(Icons.phone_android),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20.0),
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(
+                  height: 10.0,
+                ),
+                TextFormField(
                   decoration: InputDecoration(
                     labelText: 'Password',
                     prefixIcon: const Icon(Icons.lock),
@@ -126,8 +141,8 @@ class _RegisterViewState extends State<RegisterView> {
 
                 TextFormField(
                   decoration: const InputDecoration(
-                    hintText: 'Enter Location',
-                    prefixIcon: Icon(Icons.location_on_outlined),
+                    hintText: 'Permanent Address',
+                    prefixIcon: Icon(Icons.location_city),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(
                         Radius.circular(20.0),
