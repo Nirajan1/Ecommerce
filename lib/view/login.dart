@@ -90,17 +90,22 @@ class _LoginViewState extends State<LoginView> {
                     Row(
                       children: [
                         Expanded(
-                          child: MaterialButton(
-                            color: Colors.blueAccent,
-                            textColor: Colors.white,
-                            onPressed: () {
-                              if (key.currentState!.validate()) {
-                                Get.offAll(() => const MyHomeView());
-                              }
-                            },
-                            child: const Text(
-                              "LOGIN",
-                              style: TextStyle(fontSize: 15.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: MaterialButton(
+                              color: Colors.blueAccent,
+                              textColor: Colors.white,
+                              onPressed: () {
+                                if (key.currentState!.validate()) {
+                                  Get.offAll(() => const MyHomeView());
+                                }
+                              },
+                              child: const Text(
+                                "LOGIN",
+                                style: TextStyle(fontSize: 15.0),
+                              ),
                             ),
                           ),
                         ),
@@ -111,11 +116,16 @@ class _LoginViewState extends State<LoginView> {
                       height: 10.0,
                     ),
 
-                    InkWell(
-                      onTap: () {
-                        Get.to(() => const RegisterView());
-                      },
-                      child: const Text('Are you new? Register here'),
+                    Row(
+                      children: [
+                        const Text('Are you new?'),
+                        InkWell(
+                          onTap: () {
+                            Get.to(() => const RegisterView());
+                          },
+                          child: const Text(' Register here'),
+                        ),
+                      ],
                     ),
                     const SizedBox(
                       height: 10.0,

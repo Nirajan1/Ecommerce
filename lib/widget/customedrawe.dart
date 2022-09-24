@@ -1,4 +1,6 @@
+import 'package:ecommerce/view/login.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MyDrawerCustome extends StatelessWidget {
   const MyDrawerCustome({
@@ -9,36 +11,39 @@ class MyDrawerCustome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
-        children: const [
-          ListTile(
+        children: [
+          const ListTile(
             leading: Icon(Icons.home),
             title: Text('HOME'),
           ),
-          ListTile(
+          const ListTile(
             title: Text('INFO'),
             leading: Icon(Icons.info),
           ),
-          ListTile(
+          const ListTile(
             title: Text('PROFILE'),
             leading: Icon(Icons.person),
           ),
-          ListTile(
+          const ListTile(
             title: Text('HELP'),
             leading: Icon(Icons.help),
           ),
-          ListTile(
+          const ListTile(
             title: Text('SETTINGS'),
             leading: Icon(Icons.settings),
           ),
-          ListTile(
+          const ListTile(
             title: Text('MORE'),
             leading: Icon(Icons.more),
           ),
           ListTile(
-            title: Text('EXIT'),
-            leading: Icon(Icons.home),
+            onTap: () {
+              Get.offAll(() => const LoginView());
+            },
+            title: const Text('EXIT'),
+            leading: const Icon(Icons.logout_outlined),
           ),
-          Divider(),
+          const Divider(),
         ],
       ),
     );

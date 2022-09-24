@@ -12,6 +12,9 @@ class MyButton extends StatelessWidget {
         Expanded(
           child: Container(
             decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(12),
+              ),
               gradient: LinearGradient(
                 colors: [
                   AppColor.primaryColor,
