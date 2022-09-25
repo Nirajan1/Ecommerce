@@ -1,3 +1,4 @@
+import 'package:ecommerce/util/color_app.dart';
 import 'package:ecommerce/view/login.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -13,7 +14,7 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   void splashload() {
     //creating method
-    Future.delayed(const Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 6), () {
       Get.off(() => const LoginView());
     });
   }
@@ -37,8 +38,8 @@ class _SplashViewState extends State<SplashView> {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color(0xff937DC2),
-                Color(0xffC689C6),
+                AppColor.primaryColor,
+                AppColor.secondaryColor,
               ],
             ),
           ),

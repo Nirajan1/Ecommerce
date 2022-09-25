@@ -12,6 +12,13 @@ class MyDrawerCustome extends StatelessWidget {
     return Drawer(
       child: ListView(
         children: [
+          const UserAccountsDrawerHeader(
+            currentAccountPicture: CircleAvatar(
+              radius: 17.0,
+            ),
+            accountName: Text('Nirajan Joshi'),
+            accountEmail: Text('nirajanjoshi@gmail.com'),
+          ),
           const ListTile(
             leading: Icon(Icons.home),
             title: Text('HOME'),

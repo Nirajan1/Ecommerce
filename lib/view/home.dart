@@ -1,6 +1,6 @@
-import 'package:ecommerce/widget/customedrawe.dart';
+import 'package:ecommerce/widget/catogries_cloth.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:get/get.dart';
 
 class MyHomeView extends StatelessWidget {
   const MyHomeView({super.key});
@@ -9,35 +9,29 @@ class MyHomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: const MyDrawerCustome(),
-        appBar: AppBar(
-          title: const Text('Home Page'),
-        ),
+        backgroundColor: Colors.grey[300],
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              CarouselSlider(
-                options: CarouselOptions(
-                  height: 400.0,
-                  autoPlay: true,
-                  viewportFraction: 0.8,
-                ),
-                items: [1, 2, 3, 4, 5].map((i) {
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return Container(
-                          width: MediaQuery.of(context).size.width,
-                          margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                          decoration: const BoxDecoration(color: Colors.amber),
-                          child: Text(
-                            'text $i',
-                            style: const TextStyle(fontSize: 16.0),
-                          ));
-                    },
-                  );
-                }).toList(),
-              )
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                SizedBox(
+                  width: Get.size.width,
+                  height: 190,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      const MyCustomItemCatogries(
+                        color: Colors.blue,
+                      ),
+                      const MyCustomItemCatogries(_
+                      color: Colors.white,
+,                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

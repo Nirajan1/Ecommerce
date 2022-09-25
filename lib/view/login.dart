@@ -4,6 +4,7 @@ import 'package:ecommerce/view/registration.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
+import 'package:ecommerce/util/color_app.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -19,6 +20,7 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.grey[300],
         body: Center(
           child: SingleChildScrollView(
             child: Padding(
@@ -27,12 +29,16 @@ class _LoginViewState extends State<LoginView> {
                 //important pattern
                 key: key,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     //page title
                     const Text(
                       "SIGN IN",
                       style: TextStyle(
-                          fontSize: 26.0, fontWeight: FontWeight.bold),
+                          color: Colors.blue,
+                          fontSize: 26.0,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 3.0),
                     ),
                     //Image lottie animation
                     Lottie.asset(
@@ -42,49 +48,56 @@ class _LoginViewState extends State<LoginView> {
                       frameRate: FrameRate(30.0),
                     ),
                     //user id
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        labelText: 'User name',
-                        prefixIcon: Icon(Icons.person),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(20.0),
-                          ),
-                        ),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(12),
                       ),
-                      validator: ((value) =>
-                          value!.isEmpty ? 'Email id is required' : null),
+                      child: TextFormField(
+                        decoration: const InputDecoration(
+                          labelText: 'User name',
+                          prefixIcon: Icon(Icons.person),
+                          border: InputBorder.none,
+                        ),
+                        validator: ((value) =>
+                            value!.isEmpty ? 'Email id is required' : null),
+                      ),
                     ),
                     const SizedBox(
                       height: 10.0,
                     ),
+
                     //password field
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'Password*',
-                        prefixIcon: const Icon(Icons.lock),
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            showPassword = !showPassword;
-                            setState(() {});
-                          },
-                          icon: showPassword == true
-                              ? const Icon(Icons.visibility_off_outlined)
-                              : const Icon(Icons.visibility_outlined),
-                        ),
-                        border: const OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(20.0),
-                          ),
-                        ),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(12),
                       ),
-                      obscureText: showPassword,
-                      validator: ((value) =>
-                          value!.isEmpty ? 'Password is required' : null),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: 'Password*',
+                          prefixIcon: const Icon(Icons.lock),
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              showPassword = !showPassword;
+                              setState(() {});
+                            },
+                            icon: showPassword == true
+                                ? const Icon(Icons.visibility_off_outlined)
+                                : const Icon(Icons.visibility_outlined),
+                          ),
+                          border: InputBorder.none,
+                        ),
+                        obscureText: showPassword,
+                        validator: ((value) =>
+                            value!.isEmpty ? 'Password is required' : null),
+                      ),
                     ),
 
                     const SizedBox(
-                      height: 10.0,
+                      height: 16.0,
                     ),
 
                     Row(
@@ -93,9 +106,16 @@ class _LoginViewState extends State<LoginView> {
                           child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12),
+                              gradient: const LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  AppColor.primaryColor,
+                                  AppColor.secondaryColor,
+                                ],
+                              ),
                             ),
                             child: MaterialButton(
-                              color: Colors.blueAccent,
                               textColor: Colors.white,
                               onPressed: () {
                                 if (key.currentState!.validate()) {
@@ -104,7 +124,10 @@ class _LoginViewState extends State<LoginView> {
                               },
                               child: const Text(
                                 "LOGIN",
-                                style: TextStyle(fontSize: 15.0),
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  letterSpacing: 3.0,
+                                ),
                               ),
                             ),
                           ),
@@ -113,17 +136,21 @@ class _LoginViewState extends State<LoginView> {
                     ),
 
                     const SizedBox(
-                      height: 10.0,
+                      height: 15.0,
                     ),
-
+                    //new user registration
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text('Are you new?'),
                         InkWell(
                           onTap: () {
                             Get.to(() => const RegisterView());
                           },
-                          child: const Text(' Register here'),
+                          child: const Text(
+                            ' Register here',
+                            style: TextStyle(color: Colors.blueAccent),
+                          ),
                         ),
                       ],
                     ),
@@ -131,6 +158,7 @@ class _LoginViewState extends State<LoginView> {
                       height: 10.0,
                     ),
 
+                    //forget password
                     InkWell(
                       onTap: () {
                         Get.to(() => const ForgetPasswordView());
