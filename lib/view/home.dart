@@ -1,4 +1,4 @@
-import 'package:ecommerce/widget/catogries_cloth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,12 +22,8 @@ class MyHomeView extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
-                      const MyCustomItemCatogries(
-                        color: Colors.blue,
-                      ),
-                      const MyCustomItemCatogries(_
-                      color: Colors.white,
-,                    ],
+                      
+                    ],
                   ),
                 )
               ],
