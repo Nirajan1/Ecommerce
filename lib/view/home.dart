@@ -1,35 +1,63 @@
-
+import 'package:ecommerce/screen/chart_screen.dart';
+import 'package:ecommerce/screen/home_screen.dart';
+import 'package:ecommerce/screen/profile_screen.dart';
+import 'package:ecommerce/screen/setting_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import '../widget/customedrawe.dart';
 
-class MyHomeView extends StatelessWidget {
+class MyHomeView extends StatefulWidget {
   const MyHomeView({super.key});
+
+  @override
+  State<MyHomeView> createState() => _MyHomeViewState();
+}
+
+class _MyHomeViewState extends State<MyHomeView> {
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.grey[300],
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                SizedBox(
-                  width: Get.size.width,
-                  height: 190,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    // ignore: prefer_const_literals_to_create_immutables
-                    children: [
-                      
-                    ],
-                  ),
-                )
-              ],
+        bottomNavigationBar: BottomNavigationBar(
+          onTap: (index) {
+            selectedIndex = index;
+            setState(() {});
+          },
+          currentIndex: selectedIndex,
+          showSelectedLabels: true,
+          selectedItemColor: Colors.blue,
+          showUnselectedLabels: true,
+          unselectedItemColor: Colors.grey,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
             ),
-          ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings), label: 'Settings'),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart),
+              label: 'Cart',
+            ),
+          ],
         ),
+        appBar: AppBar(
+          title: const Text("ecommerce"),
+        ),
+        drawer: const MyDrawerCustome(),
+        backgroundColor: Colors.grey[100],
+        body: selectedIndex == 0
+            ? const HomeScreen()
+            : selectedIndex == 1
+                ? const SettingScreen()
+                : selectedIndex == 2
+                    ? const ProfileScreen()
+                    : const ChartScreen(),
       ),
     );
   }
