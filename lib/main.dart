@@ -1,3 +1,4 @@
+import 'package:ecommerce/bindiging/controller_binding.dart';
 import 'package:ecommerce/view/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      initialBinding: MyBinding(),
       home: const SplashView(),
     );
   }
