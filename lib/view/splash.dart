@@ -47,7 +47,11 @@ class _SplashViewState extends State<SplashView> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               //image
-              Lottie.asset('images/grocery.json'),
+              Lottie.asset(
+                'images/grocery.json',
+                width: Get.size.width * 0.50,
+                height: Get.size.height * 0.3,
+              ),
               const Text(
                 "A whole grocery store\n at your fingertips",
                 textAlign: TextAlign.center,

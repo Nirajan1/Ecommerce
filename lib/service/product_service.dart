@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class ProductService {
-  static const client = http.Client;
+  static var client = http.Client;
   //Method (meaning Function)
-  static Future<List<ProductModel>?> fetchProduct() async {
+  static Future<List<ProductModel>?> fetchProducts() async {
     try {
       var response =
           await http.get(Uri.parse("https://fakestoreapi.com/products"));
@@ -18,5 +18,6 @@ class ProductService {
     } catch (error) {
       Get.snackbar("error", error.toString());
     }
+    return null;
   }
 }

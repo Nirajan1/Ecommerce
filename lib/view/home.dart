@@ -48,6 +48,12 @@ class _MyHomeViewState extends State<MyHomeView> {
         ),
         appBar: AppBar(
           title: const Text("ecommerce"),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.shopping_cart),
+            ),
+          ],
         ),
         drawer: const MyDrawerCustome(),
         backgroundColor: Colors.grey[100],

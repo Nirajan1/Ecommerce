@@ -3,11 +3,11 @@ import 'package:get/get.dart';
 
 class ProductController extends GetxController {
   var products = [].obs;
-  var isLoading = false.obs;
+  var isLoading = true.obs;
   Future getProducts() async {
     try {
       isLoading(true);
-      var data = await ProductService.fetchProduct();
+      var data = await ProductService.fetchProducts();
       if (data != null) {
         products.value = data;
       }

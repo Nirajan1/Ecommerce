@@ -1,6 +1,6 @@
 import 'package:ecommerce/controller/product_controller.dart';
 import 'package:ecommerce/widget/horizontal_items.dart';
-import 'package:ecommerce/widget/items_card.dart';
+
 import 'package:ecommerce/widget/list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
     return Obx(
       () {
         if (pController.isLoading.value == true) {
-          return const CircularProgressIndicator();
+          return const Center(child: CircularProgressIndicator());
         } else {
           return SingleChildScrollView(
             child: Column(
@@ -42,39 +42,7 @@ class HomeScreen extends StatelessWidget {
                 ),
 
                 //horizontal scolling listView
-                SizedBox(
-                  width: Get.size.width,
-                  height: 170,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: const [
-                      CustomeItemCard(
-                        image:
-                            "https://cdn.pixabay.com/photo/2014/04/22/02/56/pizza-329523__340.jpg",
-                        text: "Pizza",
-                        price: "Rs299",
-                      ),
-                      CustomeItemCard(
-                        image:
-                            "https://cdn.pixabay.com/photo/2019/11/09/17/02/burger-4614022__340.jpg",
-                        text: "Burger",
-                        price: "Rs399",
-                      ),
-                      CustomeItemCard(
-                        image:
-                            "https://cdn.pixabay.com/photo/2016/11/20/09/06/bowl-1842294__340.jpg",
-                        text: "Frise",
-                        price: "Rs166",
-                      ),
-                      CustomeItemCard(
-                        image:
-                            "https://cdn.pixabay.com/photo/2018/07/18/19/12/pasta-3547078__340.jpg",
-                        text: "pasta",
-                        price: "Rs166",
-                      ),
-                    ],
-                  ),
-                ),
+
                 //padding
                 const SizedBox(
                   height: 2.0,
