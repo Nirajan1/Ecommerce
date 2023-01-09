@@ -48,6 +48,7 @@ class _MyHomeViewState extends State<MyHomeView> {
         ),
         appBar: AppBar(
           title: const Text("ecommerce"),
+          centerTitle: true,
           actions: [
             IconButton(
               onPressed: () {},
